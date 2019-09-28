@@ -2,27 +2,24 @@ import React from 'react';
 
 class Navbar extends React.Component {
   render() {
+    console.log(this.props);
     return (
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#">
+      <nav className="navbar navbar-default">
+        <div className="container-fluid">
+          <div className="navbar-header">
+            <a className="navbar-brand" href="/">
               {this.props.siteName}
             </a>
           </div>
-          <ul class="nav navbar-nav">
-            <li class="active">
-              <a href="#">Home</a>
-            </li>
-            <li>
-              <a href="#">Page 1</a>
-            </li>
-            <li>
-              <a href="#">Page 2</a>
-            </li>
-            <li>
-              <a href="#">Page 3</a>
-            </li>
+          <ul className="nav navbar-nav">
+            {this.props.pages.map((page, index) => {
+              return (
+                <li key={`${page} ${index}`}>
+                  {' '}
+                  <a href="/"> {page['page']}</a>{' '}
+                </li>
+              );
+            })}
           </ul>
         </div>
       </nav>
